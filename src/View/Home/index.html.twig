@@ -45,7 +45,11 @@
              </form>
         </div>
         {% if horses is defined %}
-            <p id="AvailableHorse">There are {{ horses }} available horses!</p>
+        <p id="AvailableHorse">There are {{ horses }} availables horses in {{ city }}!</p>
+        {% endif %}
+        {% if message is defined %}
+            <p id="message">{{ message }}</p>
+            <a href="/home/index">Search a new horse!</a>
         {% endif %}
     </main>
 

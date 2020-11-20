@@ -57,6 +57,7 @@ class APIManager extends AbstractManager
         }
 
         $freeHorses = 0;
+
         $numbers = ($this->client->request('GET', 'http://api.citybik.es/v2/networks/' . $id))->toArray();
         foreach ($numbers['network']['stations'] as $number) {
             $freeHorses += $number['free_bikes'];
