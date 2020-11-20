@@ -37,9 +37,27 @@ class HomeController extends AbstractController
 
     public function horses()
     {
+        $message = "";
+
         $locations = (new ApiManager())->getData();
         $horses = (new ApiManager())->numberHorsesCity($locations, $_POST['city']);
+        $city = $_POST['city'];
 
-        return $this->twig->render('Home/index.html.twig', ['horses' => $horses]);
+        if ($horses <= 0) {
+            $message = "There are not good horse here, cow-boy!";
+
+            return $this->twig->render(
+                'Home/index.html.twig',
+                ['message' => $message]
+            );
+        } else {
+            $message = "Good travel cowboy";
+            return $this->twig->render(
+                'Home/travel.html.twig',
+                ['horses' => $horses,
+                'message' => $message,
+                'city' => $city]
+            );
+        }
     }
 }

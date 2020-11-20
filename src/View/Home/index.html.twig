@@ -30,6 +30,10 @@
     <input type="submit" id="selectCity" value="hiiiiha!!!">
 </form>
 {% if horses is defined %}
-    <p id="AvailableHorse">There are {{ horses }} availables horses!</p>
+    <p id="AvailableHorse">There are {{ horses }} availables horses in {{ city }}!</p>
+{% endif %}
+{% if message is defined %}
+    <p id="message">{{ message }}</p>
+    <a href="/home/index">Search a new horse!</a>
 {% endif %}
 {% endblock %}
