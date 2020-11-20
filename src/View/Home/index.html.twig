@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+
     <header>
         <h1 ><img class="horseLogo" src="/assets/images/horse.png"><a href="/../" class= "title">Fast Horse Rental</a></h1>
     </header>
@@ -13,42 +14,48 @@
         the desert or rocky landscapes? <br>Discover our horse rental service. You have the possibility to rent a horse in different countries.<br>
         Be free, use our services !!</p>
 
+
+        {% if cities is defined %}
+            {{ cities.0 }}
+        {% else %}
         <div class="countryForm">
-            <form method="post" action="/validation.php/">
+            <form method="post" action="/home/city">
                     <label class="label" for="country" >Choose your country</label><br>
                     <select name="country" id="country">
-                        <option value="">--Please choose an option--</option><br>
+                        <option value="">--Please choose an option--</option>
                         {% for country in countries %}
                             <option value="{{ country }}">{{ country }}</option>
                         {% endfor %}
                     </select>
-                <input type="submit" class="submit" value="hiiiiha!!!">
+                <input type="submit" id="selectCountry" class="submit" value="hiiiiha!!!">
             </form>
-        </div>
-        <div class="cityForm">
-            <form method="post" action="">
-                    <label class="label" for="city" >Choose your city</label><br>
-                    <select name="city" id="city">
-                        <option value="">--Please choose an option--</option><br>
-                        {% for index in locations %}
-                            {% for rent in index %}
-                                {% if post.country == rent.location.country %}
-                                    <option value="{{ rent.id }}">{{ rent.location.city }}</option>
-                                {% endif %}
-                            {% endfor %}    
-                        {% endfor %}
-                    </select>
-                <input type="submit" class="submit" value="hiiiiha!!!">
-            </form>
+        {% endif %}
+
+
         </div>
 
+
+         <div class="cityForm">
+            <form method="post" action="/home/horses">
+                <label class="label" for="city" >Choose your city</label><br>
+                <select name="city" id="city">
+                    <option value="">--Please choose an option--</option>
+                    {% for city in cities %}
+                        <option value="{{ city }}">{{ city }}</option>
+                    {% endfor %}
+                </select>
+            <input type="submit" class="submit" id="selectCity" value="hiiiiha!!!">
+             </form>
+        </div>
+        {% if horses is defined %}
+            <p id="AvailableHorse">There are {{ horses }} available horses!</p>
+        {% endif %}
     </main>
 
     <footer>
         <h2 class="footer">Legal Notices</h2>
     </footer>
-{% endblock %}
 
-
+   {% endblock %}
 
 

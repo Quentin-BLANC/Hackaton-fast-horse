@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -15,7 +16,9 @@
 <body>
 
 {% block content %}{% endblock %}
-{% block javascript %}{% endblock %}
+{% block javascript %}
+    <script src="/assets/script.js"></script>
+{% endblock %}
 </body>
 </html>
 

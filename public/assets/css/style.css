@@ -86,6 +86,33 @@ main {
     src: url('Calligraffiti.ttf')
 }
 
+#AvailableCountry{
+    text-decoration: none;
+    font-family: 'Calligraffiti';
+    font-size:5vw;
+    color: #000000;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Calligraffiti';
+    src: url('Calligraffiti.ttf')
+
+}
+
+#AvailableHorse{
+    text-decoration: none;
+    font-family: 'Calligraffiti';
+    font-size:5vw;
+    color: #000000;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Calligraffiti';
+    src: url('Calligraffiti.ttf')
+}
+
 .submit{
     text-decoration: none;
     font-family: 'Calligraffiti';
