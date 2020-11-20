@@ -1,3 +1,4 @@
+ 
 {% extends 'layout.html.twig' %}
 
 {% block content %}
@@ -16,7 +17,7 @@
 
 
         {% if cities is defined %}
-            <p id="AvailableCountry">You choose {{ cities.0 }} </p>
+            {{ cities.0 }}
         {% else %}
         <div class="countryForm">
             <form method="post" action="/home/city">
@@ -30,7 +31,10 @@
                 <input type="submit" id="selectCountry" class="submit" value="hiiiiha!!!">
             </form>
         {% endif %}
+
+
         </div>
+
 
          <div class="cityForm">
             <form method="post" action="/home/horses">
@@ -49,7 +53,7 @@
         {% endif %}
         {% if message is defined %}
             <p id="message">{{ message }}</p>
-            <a href="/home/index">Search a new horse!</a>
+            <a href="/home/index" class="returnIndex">Search a new horse!</a>
         {% endif %}
     </main>
 

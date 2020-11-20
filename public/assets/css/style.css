@@ -5,6 +5,7 @@ html {
 body {
     background-image: url("/assets/images/wanted.jpg");
     margin:0%;
+    text-align: center;
 }
 
 main {
@@ -116,16 +117,11 @@ main {
 
 #AvailableHorse{
     text-decoration: none;
-    font-family: 'Calligraffiti';
     font-size:5vw;
     color: #000000;
     text-align: center;
 }
 
-@font-face {
-    font-family: 'Calligraffiti';
-    src: url('Calligraffiti.ttf')
-}
 
 .submit{
     text-decoration: none;
@@ -140,6 +136,29 @@ main {
     src: url('Calligraffiti.ttf')
 }
 
+#message{
+    text-decoration: none;
+    font-family: 'Calligraffiti';
+    font-size:4vw;
+    color: #000000;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Calligraffiti';
+    src: url('Calligraffiti.ttf')
+}
+
+.returnIndex{
+    font-family: 'Calligraffiti';
+    font-size:4vw;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Calligraffiti';
+    src: url('Calligraffiti.ttf')
+}
 
 .footer {
     height: 50px;
