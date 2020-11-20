@@ -1,5 +1,35 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
+{% if cities is defined %}
+    {{ cities.0 }}
+{% else %}
+<form method="post" action="/home/city">
+    <div class="">
+        <label for="country">COUNTRY</label>
+        <select name="country" id="country">
+            <option value="">--Please choose an option--</option>
+            {% for country in countries %}
+                <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <input type="submit" id="selectCountry" value="hiiiiha!!!">
+</form>
+{% endif %}
+<form method="post" action="/home/horses">
+    <div class="">
+        <label for="city">CITY</label>
+        <select name="city" id="city">
+            <option value="">--Please choose an option--</option>
+            {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <input type="submit" id="selectCity" value="hiiiiha!!!">
+</form>
+{% if horses is defined %}
+    <p id="AvailableHorse">There are {{ horses }} availables horses!</p>
+{% endif %}
 {% endblock %}

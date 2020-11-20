@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\APIManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,6 +23,23 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $locations = (new APIManager())->getData();
+        $countries = (new APIManager())->filterCountry($locations);
+        return $this->twig->render('Home/index.html.twig', ["countries" => $countries]);
+    }
+    public function city()
+    {
+        $locations = (new APIManager())->getData();
+        $countries = (new APIManager())->filterCountry($locations);
+        $cities = (new APIManager())->filterCity($locations, $_POST["country"]);
+        return $this->twig->render('Home/index.html.twig', ["countries" => $countries, "cities" => $cities]);
+    }
+
+    public function horses()
+    {
+        $locations = (new ApiManager())->getData();
+        $horses = (new ApiManager())->numberHorsesCity($locations, $_POST['city']);
+
+        return $this->twig->render('Home/index.html.twig', ['horses' => $horses]);
     }
 }
