@@ -16,7 +16,7 @@
 
 
         {% if cities is defined %}
-            {{ cities.0 }}
+            <p id="AvailableCountry">You choose {{ cities.0 }} </p>
         {% else %}
         <div class="countryForm">
             <form method="post" action="/home/city">
@@ -30,10 +30,7 @@
                 <input type="submit" id="selectCountry" class="submit" value="hiiiiha!!!">
             </form>
         {% endif %}
-
-
         </div>
-
 
          <div class="cityForm">
             <form method="post" action="/home/horses">
