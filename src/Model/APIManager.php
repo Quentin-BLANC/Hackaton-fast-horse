@@ -34,7 +34,7 @@ class APIManager extends AbstractManager
 
     public function filterCity($dataAPI, $country)
     {
-        $city = [$country];
+        $city = [];
         foreach ($dataAPI as $index) {
             foreach ($index as $rent) {
                 if ($country === $rent["location"]["country"]) {

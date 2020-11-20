@@ -32,7 +32,13 @@ class HomeController extends AbstractController
         $locations = (new APIManager())->getData();
         $countries = (new APIManager())->filterCountry($locations);
         $cities = (new APIManager())->filterCity($locations, $_POST["country"]);
-        return $this->twig->render('Home/index.html.twig', ["countries" => $countries, "cities" => $cities]);
+        $countrySelected = $_POST["country"];
+        return $this->twig->render(
+            'Home/index.html.twig',
+            ["countries" => $countries,
+            "cities" => $cities,
+            "countrySelected" => $countrySelected]
+        );
     }
 
     public function horses()
@@ -41,14 +47,15 @@ class HomeController extends AbstractController
 
         $locations = (new ApiManager())->getData();
         $horses = (new ApiManager())->numberHorsesCity($locations, $_POST['city']);
-        $city = $_POST['city'];
+        $citySelected = $_POST['city'];
 
         if ($horses <= 0) {
             $message = "There are not good horse here, cow-boy!";
 
             return $this->twig->render(
                 'Home/index.html.twig',
-                ['message' => $message]
+                ['message' => $message,
+                'citySelected' => $citySelected]
             );
         } else {
             $message = "Good travel cowboy";
@@ -56,7 +63,7 @@ class HomeController extends AbstractController
                 'Home/travel.html.twig',
                 ['horses' => $horses,
                 'message' => $message,
-                'city' => $city]
+                'citySelected' => $citySelected]
             );
         }
     }
