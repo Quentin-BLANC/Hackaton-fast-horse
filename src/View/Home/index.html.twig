@@ -1,3 +1,4 @@
+ 
 {% extends 'layout.html.twig' %}
 
 {% block content %}
@@ -54,7 +55,7 @@
         {% if message is defined %}
             <h2>In {{ citySelected }}</h2>
             <p id="message">{{ message }}</p>
-            <a href="/home/index">Search a new horse!</a>
+            <a href="/home/index" class="returnIndex">Search a new horse!</a>
         {% endif %}
     </main>
 
